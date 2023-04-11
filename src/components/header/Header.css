@@ -1,0 +1,21 @@
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: goldenrod;
+    padding: 1.5rem;
+}
+
+.brandname{
+    cursor: pointer;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.cart-icon{
+    cursor: pointer;
+}
+.cart-icon:hover,.brandname:hover {
+    color: purple;
+}
