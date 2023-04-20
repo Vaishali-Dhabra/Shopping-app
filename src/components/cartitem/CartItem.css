@@ -1,0 +1,29 @@
+.flex-cart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.flex-product{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+}
+
+.img-cart{
+    width: 50%;
+}
+.cart-button{
+    display: flex;
+    align-items: center;
+}
+
+.empty-cart{
+    color: purple;
+    text-align: center;
+    margin: 20px;
+}

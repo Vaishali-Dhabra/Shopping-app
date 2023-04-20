@@ -1,13 +1,15 @@
 import React from 'react';
 import Header from '../components/header/Header';
+import CartItem from '../components/cartitem/CartItem';
 
 
 const CartPage = () => {
   return (
-    <div>
+    <>
       <Header/>
-    </div>
-  )
+      <CartItem/>
+    </>
+  );
 }
 
 export default CartPage;

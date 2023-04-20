@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Button, Typography} from '@mui/material';
 import './CardData.css';
-import { AddToCart } from '../../redux/action/action';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from '../../redux/actions/Action';
+
+    var totalproduct=0;
+    function Productcount() {
+    totalproduct++;
+    }
 
 const CardData = () => {
     
+    const dispatch = useDispatch();
     const [item,setitem]=useState([]);
-    const dispatch = useDispatch()
 
     useEffect(()=>{
         axios.get("https://dummyjson.com/products")
@@ -16,8 +21,9 @@ const CardData = () => {
         .catch((error)=>console.log("Error")) 
     },[]);
 
-    const sentToReducer = (data) => {
-        dispatch(AddToCart(data))
+    const totalCartItems = useSelector((state) => state.cartItem.productData);
+    if(totalCartItems.length===0){
+        totalproduct = 0;
     }
 
     return (
@@ -30,7 +36,10 @@ const CardData = () => {
                             <Typography variant='h5'>{data.title}</Typography>
                             <Typography>{data.description}</Typography>
                             <Typography variant='h6'>Price : ${data.price}</Typography>
-                            <Button variant='contained' color='secondary' onClick={()=> sentToReducer(data)}>Add to cart</Button>
+                            <Button variant='contained' color='secondary' onClick={() =>
+                                dispatch(addToCart(data), Productcount())}>
+                                Add to cart
+                            </Button>
                             </div>
                         )
                     })}
@@ -40,3 +49,4 @@ const CardData = () => {
 }
 
 export default CardData;
+export {totalproduct};
