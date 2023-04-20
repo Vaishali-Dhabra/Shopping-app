@@ -13,9 +13,7 @@ const CartItem = () => {
         <>
             {CartItem.length === 0 && (
             <div className='empty-cart' >
-                <marquee scrollamount="5">
                     <h1> There is nothing in your cart</h1>
-                </marquee>
             </div>
             )}
             <div className='flex-cart'>
